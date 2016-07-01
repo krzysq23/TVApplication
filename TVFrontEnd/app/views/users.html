@@ -1,0 +1,36 @@
+﻿<div class="row">
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+    <div class="col-md-8">
+        <br />
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Add</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="user in users">
+                    <td>
+                        {{ user.firstName }}
+                    </td>
+                    <td>
+                        {{ user.lastName }}
+                    </td>
+                    <td>
+                        <button ng-click="addToFriends(user)"><i class="fa fa-plus"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+</div>
+

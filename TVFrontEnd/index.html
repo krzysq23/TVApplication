@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="AngularAuthApp" lang="en">
+<head>
+    <meta name="keywords" content="angularjs,SPA,Single Page Application,refresh tokens,authentication,bearer token authentication,OWIN,bootstrap,bootstrap ui,tutorial,JS framework,ASP.NET WEB API 2,Taiseer Joudeh" />
+    <meta name="description" content="SPA built using angularjs,authentication is done using bearer token,back end built using Asp.net web api 2 and OWIN Framework,creatd by Taiseer Joudeh" />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>AngularJS Authentication</title>
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/site.css" rel="stylesheet" />
+    <link href="content/loading-bar.css" rel="stylesheet" />
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="content/social-buttons.css" rel="stylesheet" />
+    <link href="content/angular-notify.css" rel="stylesheet" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" data-ng-hide="authentication.isAuth" href="#/">Home</a>
+                <a class="navbar-brand" data-ng-hide="!authentication.isAuth" href="#/main">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/editprofile">Welcome {{authentication.userName}}</a></li>
+                    <!--<li data-ng-hide="!authentication.isAuth"><a href="#/orders">My Orders</a></li>-->
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> 
+
+    <div class="container">
+        <div data-ng-view="">      
+        </div> 
+    </div>
+    
+    <hr />
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted">Created by Krzysztof Skarbowski</p>
+                </div>
+                <div class="col-md-6" >
+                    <p class="text-muted" style="float:right">PGS Soft: <a target="_blank" href="https://www.pgs-soft.com/pl/">pgs-soft.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-controller="SignalRHubController">
+
+    </div>
+    <!-- 3rd party libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="scripts/angular-local-storage.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+    <script src="scripts/angular-notify.js"></script>  
+    <!-- Load app main script -->
+    <script src="app/app.js"></script>
+    <!-- Load SignalR -->
+    <!--@Scripts.Render("~/bundles/signalr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/signalr/hubs")-->
+    <script src="http://localhost:7620/Scripts/jquery-1.6.4.min.js"></script>
+    <script src="http://localhost:7620/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="http://localhost:7620/signalr/hubs"></script> 
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/ordersService.js"></script>
+    <script src="app/services/moviesService.js"></script> 
+    <script src="app/services/usersService.js"></script>
+    <script src="app/services/notificationsService.js"></script>
+    <script src="app/services/signalRHubService.js"></script>  
+    <!-- Load controllers -->
+    <script src="app/controllers/SignalRHubController.js"></script>
+    <script src="app/controllers/associateController.js"></script>
+    <script src="app/controllers/indexController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/signupController.js"></script>
+    <script src="app/controllers/ordersController.js"></script>
+    <script src="app/controllers/moviesController.js"></script>
+    <script src="app/controllers/usersController.js"></script>
+    <script src="app/controllers/friendsController.js"></script>
+    <script src="app/controllers/commentsController.js"></script>
+    <script src="app/controllers/editprofileController.js"></script>
+    <script src="app/controllers/favoritemoviesController.js"></script>
+    <script src="app/controllers/notificationsController.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+    <div class="col-md-8">
+        <br /><br />
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Comments</th>
+                    <th>Follow</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="movie in movies">
+                    <td>
+                        {{ movie.title }}
+                    </td>
+                    <td>
+                        {{ movie.year }}
+                    </td>
+                    <td>
+                        <button ng-click="showComments(movie.title)"><i class="fa fa-comment"></i></button>
+                    </td>
+                    <td>
+                        <button ng-click="addToFavourit(movie)"><i class="fa fa-eye"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-2">
+        &nbsp;
+    </div>
+</div>
